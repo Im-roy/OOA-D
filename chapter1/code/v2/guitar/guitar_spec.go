@@ -8,6 +8,17 @@ type GuitarSpec struct {
 	topWood    WoodType
 }
 
+func NewGuitarSpec(builder BuilderType, model string, guitarType GuitarType, blackWood, topWood WoodType) GuitarSpec {
+	guitarSpec := GuitarSpec{
+		builder:    builder,
+		model:      model,
+		guitarType: guitarType,
+		backWood:   blackWood,
+		topWood:    topWood,
+	}
+	return guitarSpec
+}
+
 func (g *GuitarSpec) SetBuilder(builder BuilderType) {
 	g.builder = builder
 }
@@ -46,4 +57,8 @@ func (g *GuitarSpec) BackWood() WoodType {
 
 func (g *GuitarSpec) TopWood() WoodType {
 	return g.topWood
+}
+
+func (g GuitarSpec) Equals(requiredSpec GuitarSpec) bool {
+	return true
 }

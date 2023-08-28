@@ -1,0 +1,6 @@
+go 1.18
+
+use (
+	./chapter1/code/v1
+	./chapter1/code/v2
+)

@@ -7,10 +7,11 @@ type Guitar struct {
 }
 
 // constructor for Guitar class
-func NewGuitar(serialNumber string, price float64, builder BuilderType, model string, guitarType GuitarType, blackWood, topWood WoodType) Guitar {
+func NewGuitar(serialNumber string, price float64, guitarSpec GuitarSpec) Guitar {
 	guitar := Guitar{
 		serialNumber: serialNumber,
 		price:        price,
+		spec:         guitarSpec,
 	}
 	return guitar
 }
@@ -24,6 +25,10 @@ func (g *Guitar) SetPrice(price float64) {
 	g.price = price
 }
 
+func (g *Guitar) SetSpec(spec GuitarSpec) {
+	g.spec = spec
+}
+
 // Getter methods
 func (g *Guitar) SerialNumber() string {
 	return g.serialNumber
@@ -31,4 +36,8 @@ func (g *Guitar) SerialNumber() string {
 
 func (g *Guitar) Price() float64 {
 	return g.price
+}
+
+func (g *Guitar) Spec() GuitarSpec {
+	return g.spec
 }
